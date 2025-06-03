@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "tours": "Tours",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Welcome to Umra Tours",
+    "subtitle": "Your trusted partner for spiritual journeys",
+    "cta": "Explore Tours",
+    "features": {
+      "title": "Why Choose Us",
+      "experience": "Years of Experience",
+      "service": "Quality Service",
+      "support": "24/7 Support"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "mission": "Our Mission",
+    "missionText": "To provide exceptional pilgrimage experiences with comfort and care.",
+    "experience": "Our Experience",
+    "experienceText": "With years of experience in organizing Umra and Hajj tours, we ensure a memorable spiritual journey."
+  },
+  "tours": {
+    "title": "Our Tours",
+    "filter": "Filter Tours",
+    "all": "All Tours",
+    "umra": "Umra",
+    "hajj": "Hajj",
+    "details": "Tour Details",
+    "duration": "Duration",
+    "price": "Price",
+    "date": "Date",
+    "book": "Book Now"
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "viewAll": "View All Photos"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram"
+    }
+  },
+  "admin": {
+    "login": "Admin Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "tours": "Manage Tours",
+    "about": "Update About Us",
+    "addTour": "Add New Tour",
+    "editTour": "Edit Tour",
+    "deleteTour": "Delete Tour",
+    "save": "Save Changes"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "required": "Required field"
+  }
+} 
