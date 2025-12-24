@@ -9,6 +9,7 @@ import {
   Box,
   Tabs,
   Tab,
+  CircularProgress,
 } from "@mui/material";
 import axios from "axios";
 import Footer from "./Footer";
@@ -24,16 +25,23 @@ interface GalleryImage {
 const Gallery = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchImages = async () => {
+      setLoading(true);
+
       try {
         const response = await axios.get(
           "https://umra-vjr0.onrender.com/api/gallery"
         );
         setImages(response.data as GalleryImage[]);
-      } catch (error) {
-        console.error("Ошибка при загрузке изображений:", error);
+      } catch (err) {
+        console.error("Ошибка при загрузке изображений:", err);
+        setError("Не удалось загрузить изображение");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -67,7 +75,23 @@ const Gallery = () => {
       >
         Галерея
       </Typography>
-
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            minHeight: "300px",
+          }}
+        >
+          <CircularProgress size={60} />
+        </Box>
+      )}
+      {error && (
+        <Typography color="error" align="center">
+          {error}
+        </Typography>
+      )}
       <Box
         sx={{
           borderBottom: 1,

@@ -99,6 +99,8 @@ const AdminTours = () => {
 
   const handleDelete = async (id: string) => {
     if (window.confirm("Вы уверены, что хотите удалить этот тур?")) {
+    
+      
       try {
         await axios.delete(`https://umra-vjr0.onrender.com/api/tours/${id}`, {
           headers: { Authorization: `Bearer ${token}` },

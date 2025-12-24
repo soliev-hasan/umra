@@ -33,6 +33,8 @@ const Navbar = () => {
     { text: "Туры", path: "/tours" },
     { text: "О нас", path: "/about" },
     { text: "Контакты", path: "/contact" },
+    { text: "Панель Управления", path: "/admin/dashboard"}
+    
   ];
 
   const drawer = (
@@ -56,20 +58,7 @@ const Navbar = () => {
       ))}
       {token ? (
         <>
-          <ListItem
-            button
-            component={RouterLink}
-            to="/admin/dashboard"
-            onClick={handleDrawerToggle}
-            sx={{
-              "&:hover": {
-                backgroundColor: theme.palette.primary.light,
-                color: "white",
-              },
-            }}
-          >
-            <ListItemText primary="Панель управления" />
-          </ListItem>
+      
           <ListItem
             button
             onClick={() => {
@@ -115,17 +104,16 @@ const Navbar = () => {
       }}
     >
       <Toolbar>
-        {isMobile && (
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-        )}
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
+        </IconButton>
+
         <Typography
           variant="h6"
           component={RouterLink}
@@ -182,6 +170,7 @@ const Navbar = () => {
                 >
                   Выйти
                 </Button>
+                
               </>
             ) : (
               <Button

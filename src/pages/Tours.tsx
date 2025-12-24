@@ -11,6 +11,7 @@ import {
   TextField,
   MenuItem,
   Stack,
+  CircularProgress,
 } from "@mui/material";
 import axios from "axios";
 import Footer from "../components/Footer";
@@ -28,6 +29,8 @@ interface Tour {
 
 const Tours = () => {
   const [tours, setTours] = useState<Tour[]>([]);
+   const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
   const [filters, setFilters] = useState({
     type: "",
     date: "",
@@ -35,19 +38,26 @@ const Tours = () => {
   });
 
   useEffect(() => {
-    fetchTours();
+    const fetchImages = async () => {
+      setLoading(true);
+
+      try {
+        const response = await axios.get(
+          "https://umra-vjr0.onrender.com/api/gallery"
+        );
+        setTours(response.data as Tour[]);
+      } catch (err) {
+        console.error("Ошибка при загрузке:", err);
+        setError("Не удалось загрузить страницу");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
   }, []);
 
-  const fetchTours = async () => {
-    try {
-      const response = await axios.get(
-        "https://umra-vjr0.onrender.com/api/tours"
-      );
-      setTours(response.data as Tour[]);
-    } catch (error) {
-      // setError("Ошибка при загрузке туров");
-    }
-  };
+ 
 
   const handleFilterChange =
     (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,6 +92,19 @@ const Tours = () => {
       >
         Наши туры
       </Typography>
+        {loading && (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    minHeight: "300px",
+                  }}
+                >
+                  <CircularProgress size={60} />
+                </Box>
+              )}
+      
 
       {/* Фильтры */}
       <Box sx={{ mb: { xs: 3, md: 4 } }}>
